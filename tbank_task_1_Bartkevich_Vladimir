@@ -1,0 +1,22 @@
+a = int(input("начало диапазона"))
+b = int(input("конец диапазона"))
+fi = 0
+fj = 1
+fk = 1
+sp = []
+while fi < a:
+    fi = fj
+    fj = fk
+    fk = fi + fj   
+sp.append(fi)
+if fj <= b:
+    sp.append(fj)
+if fk <= b:
+    sp.append(fk)
+    while fk < b:
+        fi = fj
+        fj = fk
+        fk = fi + fj
+        if fk <= b:
+            sp.append(fk)
+print(sp)
