@@ -1,0 +1,100 @@
+def basa():
+    b = input("Введите автора")
+    c = input("Введите жанр")
+    d = input("Введите год издания")
+    e = input("Введите краткое описание")
+    spisok.append(b)
+    spisok.append(c)
+    spisok.append(d)
+    spisok.append(e)
+    basa_info[a] = spisok
+
+def del_isb():
+    l = input("Хотите удалить из избраного?")
+    if l == "да":
+        del spisok_isbranoe[a]
+    else:
+        print("Почитайте другое")
+
+def isb():
+    g = input("Хотите добавиить?")
+    if g == "да":
+        b = input("Введите автора")
+        c = input("Введите жанр")
+        d = input("Введите год издания")
+        e = input("Введите краткое описание")
+        spisok.append(b)
+        spisok.append(c)
+        spisok.append(d)
+        spisok.append(e)
+        spisok_isbranoe[a] = spisok
+    else:
+        print("Почитайте другое")
+
+def ne_prochit():
+    proch = input("Хотите прочитать снова?")
+    if proch == "да":
+        del spisok_prochitanoe[a]
+    else:
+        print("Почитайте другое")
+
+def prochit():
+    f = input("Уже прочитали?")
+    if f == "да":
+        b = input("Введите автора")
+        c = input("Введите жанр")
+        d = input("Введите год издания")
+        e = input("Введите краткое описание")
+        spisok.append(b)
+        spisok.append(c)
+        spisok.append(d)
+        spisok.append(e)
+        spisok_prochitanoe[a] = spisok
+    else:
+        print("Дочитывайте скорее")
+
+def del_basa():
+    r = input("Хотите удалить из библиотеки?")
+    if r == "да":
+        del basa_info[a]
+    else:
+        print("Почитайте другое")
+
+basa_info = dict()
+spisok_isbranoe = dict()
+spisok_prochitanoe = dict()
+spisok = list()
+print("Вас приветствует T-Библиотека")
+a = input("Введите название книги(off - завершить)")
+print("Функционал: \n добавить в список избраное - добавить в избраное\n удалить из списка избраное - удалить из избраного \n добавить в список прочитанных - уже прочитал(-а)\n убрать из списка прочитанных - прочитать снова\n добавить книгу в библиотеку - добавить в библиотеку\n удалить книгу из библиотеки - удалить из библиотеки")
+while a != "off":
+    print("Ваша библиотека:", basa_info)
+    print("Избранное:", spisok_isbranoe)
+    x = input("Что вы хотите?")
+    if x == "прочитать снова":
+        ne_prochit()
+        print("Прочитаные:", spisok_prochitanoe)
+    elif x == "уже прочитал(-а)":
+        prochit()
+        print("Прочитаные:", spisok_prochitanoe)
+    elif x == "удалить из избраного":
+        del_isb()
+        print("Избранное:", spisok_isbranoe)
+    elif x == "добавить в избраное":
+        isb()
+        print("Избранное:", spisok_isbranoe)
+    elif x == "добавить в библиотеку":
+        h = input("Хотите добавиить?")
+        if h == "да":
+            basa()
+            print("Ваша библиотека:", basa_info)
+        else:
+            print("Почитайте другое")
+            print("Ваша библиотека:", basa_info)
+    elif x == "удалить из библиотеки":
+        del_basa()
+        print("Ваша библиотека:", basa_info)
+    else:
+        print("я вас не понял")
+    a = input("Введите название книги(off - завершить)")
+print("Спасибо что используете нас")
